@@ -23,9 +23,6 @@ public class RController {
     }
 
 
-
-
-
     @GetMapping(name = "ware")
     public List<Warehouse> getAll() {
         return warehouseService.findAll();

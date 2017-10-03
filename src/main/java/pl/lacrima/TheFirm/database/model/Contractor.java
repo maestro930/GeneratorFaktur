@@ -1,5 +1,7 @@
 package pl.lacrima.TheFirm.database.model;
 
+import pl.lacrima.TheFirm.validator.Phone;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,7 +17,9 @@ public class Contractor {
     private String  street;
     private String  city;
     private String  postalCode;
-    private Integer phoneNumber;
+    @Phone
+    private String phone;
+
     private String  email;
 
     @OneToMany(mappedBy = "contractor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -23,13 +27,13 @@ public class Contractor {
 
     public Contractor(){};
 
-    public Contractor(String contractorName, String nip, String street, String city, String postalCode, Integer phoneNumber, String email) {
+    public Contractor(String contractorName, String nip, String street, String city, String postalCode, String phone, String email) {
         this.contractorName = contractorName;
         this.nip = nip;
         this.street = street;
         this.city = city;
         this.postalCode = postalCode;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -77,12 +81,12 @@ public class Contractor {
         this.postalCode = postalCode;
     }
 
-    public Integer getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -102,7 +106,7 @@ public class Contractor {
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", postalCode='" + postalCode + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phone=" + phone +
                 ", email='" + email + '\'' +
                 '}';
     }
