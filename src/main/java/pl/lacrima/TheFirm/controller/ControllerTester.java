@@ -14,6 +14,12 @@ public class ControllerTester extends HttpServlet {
         return "insert";
     }
 
+    @RequestMapping( value="tester" , method = RequestMethod.GET  )
+    public String tester(){
+        return "newProduct";
+    }
+
+
     @RequestMapping( value="read" , method = RequestMethod.GET  )
     public String read(){
         return "read";

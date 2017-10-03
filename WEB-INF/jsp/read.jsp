@@ -1,4 +1,3 @@
-<%@ page import="org.springframework.stereotype.Controller" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
@@ -15,10 +14,7 @@
 
     <h2>Magazyn:</h2>
 
-    <%
-//        response.sendRedirect("newProduct.jsp");
-    %>
-    <input type="button" value="Wprowadz nowy produkt" onclick="document.location.href='newProduct.do'">
+    <input type="button" value="Dodaj nowy produkt" onclick="document.location.href='src/mainnewProduct.jsp'">
 
     <table style="border-collapse: collapse;" border="1"
            bordercolor="#006699" width="700">
@@ -43,16 +39,6 @@
             </tr>
         </c:forEach>
     </table>
-
-    <script type="text/javascript">
-        function goToInfo(){
-            window.location = 'newProduct.jsp';
-        }
-
-
-
-    </script>
-
 </center>
 </body>
 </html>
