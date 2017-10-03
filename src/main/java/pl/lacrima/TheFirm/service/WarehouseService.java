@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.lacrima.TheFirm.database.model.Warehouse;
 import pl.lacrima.TheFirm.repository.WarehouseRepository;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -17,18 +18,19 @@ public class WarehouseService {
         this.warehouseRepository = warehouseRepository;
     }
 
-    //@PostConstruct
+    @PostConstruct
     void insert() {
         Warehouse wh = new Warehouse("Bateria", 4D, "szt", 2L);
         warehouseRepository.save(wh);
         warehouseRepository.save(new Warehouse("Latarka", 31D, "szt", 14L));
     }
 
-//    @Autowired
-    public List<Warehouse> findAll() {
-        return warehouseRepository.findAll();
-    }
     public void save(Warehouse warehouse){
         warehouseRepository.save(warehouse);
     }
+
+    public List<Warehouse> findAll() {
+        return warehouseRepository.findAll();
+    }
+
 }

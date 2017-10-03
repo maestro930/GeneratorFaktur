@@ -1,26 +1,26 @@
-package priv.rdo.sdaspring.security.config;
+package pl.lacrima.TheFirm.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import priv.rdo.sdaspring.security.command.CreateAccountCommand;
-import priv.rdo.sdaspring.security.service.AccountService;
+import pl.lacrima.TheFirm.security.command.CreateUserCommand;
+import pl.lacrima.TheFirm.security.service.UserService;
 
 import javax.annotation.PostConstruct;
 
 @Configuration
 public class AdminConfig {
-    private final AccountService accountService;
+    private final UserService userService;
 
     @Autowired
-    public AdminConfig(AccountService accountService) {
-        this.accountService = accountService;
+    public AdminConfig(UserService userService) {
+        this.userService = userService;
     }
 
-    @PostConstruct
-    private void registerAdmin() {
-        CreateAccountCommand admin = new CreateAccountCommand();
-        admin.setUsername("admin");
-        admin.setPassword("password");
-        accountService.registerNewAccount(admin);
-    }
+//    @PostConstruct
+//    private void registerAdmin() {
+//        CreateUserCommand admin = new CreateUserCommand();
+//        admin.setLogin("admin");
+//        admin.setPassword("password");
+//        userService.registerNewUser(admin);
+//    }
 }

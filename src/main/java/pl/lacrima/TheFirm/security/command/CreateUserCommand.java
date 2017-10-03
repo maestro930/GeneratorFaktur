@@ -3,21 +3,21 @@ package pl.lacrima.TheFirm.security.command;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
-public class CreateAccountCommand {
+public class CreateUserCommand {
     @NotBlank
     @Length(min = 6, max = 20)
-    private String username;
+    private String login;
 
     @NotBlank
     @Length(min = 6, max = 20)
     private String password;
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String username) {
+        this.login = username;
     }
 
     public String getPassword() {

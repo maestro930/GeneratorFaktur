@@ -23,12 +23,12 @@ public class UserService {
     }
 
     public User registerNewUser(CreateUserCommand command) {
-        if (loginExists(command.getUsername())) {
-            throw new LoginExistsException(command.getUsername());
+        if (loginExists(command.getLogin())) {
+            throw new LoginExistsException(command.getLogin());
         }
 
         User user = new User();
-        user.setLogin(command.getUsername());
+        user.setLogin(command.getLogin());
         user.setPassword(passwordEncoder.encode(command.getPassword()));
 
         return userRepository.save(user);

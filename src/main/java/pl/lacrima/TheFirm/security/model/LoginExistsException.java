@@ -1,7 +1,7 @@
 package pl.lacrima.TheFirm.security.model;
 
-public class UsernameExistsException extends RuntimeException {
-    public UsernameExistsException(String username) {
-        super("There is an account with that username: " + username);
+public class LoginExistsException extends RuntimeException {
+    public LoginExistsException(String login) {
+        super("There is an account with that login: " + login);
     }
 }

@@ -6,6 +6,6 @@ import pl.lacrima.TheFirm.database.model.User;
 
 
 @Repository
-public interface AccountRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByLogin(String login);
 }
