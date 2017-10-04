@@ -1,5 +1,6 @@
 package pl.lacrima.TheFirm.database.model;
 
+import pl.lacrima.TheFirm.validator.Nip;
 import pl.lacrima.TheFirm.validator.Phone;
 
 import javax.persistence.*;
@@ -13,9 +14,12 @@ public class User {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long    id;
-
         private String  contractorName;
+
+        @Nip
         private String  nip;
+
+
         private String  street;
         private String  city;
         private String  postalCode;
@@ -24,7 +28,10 @@ public class User {
         private String phone;
 
         private String  email;
+
+        @Column(unique = true)
         private String login;
+
         private String password;
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
