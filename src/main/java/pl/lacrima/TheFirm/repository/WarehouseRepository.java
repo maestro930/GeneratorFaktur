@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
-
-  //List<Warehouse> getAllProducts();
+//    List<Warehouse> getAllProducts();
 
 }

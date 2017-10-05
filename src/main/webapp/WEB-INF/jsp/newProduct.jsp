@@ -1,38 +1,59 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add new hello </title>
-</head>
-<body style="font-family: Arial; font-size:smaller;">
-<table  bgcolor="lightblue" width="750" height="500" align="center" style="border-collapse: collapse;" border="1" bordercolor="#006699" >
-    <tr>
-        <td align="center"><h3>Nowe hello</h3></td>
-    </tr>
-    <tr valign="top" align="center">
-        <td align="center">
-            <form:form action="saveHello.do" method="post" commandName="newHello">
+    <title>Warehouse</title>
 
-                <table width="500" style="border-collapse: collapse;" border="0" bordercolor="#006699" cellspacing="2" cellpadding="2">
-                    <tr>
-                        <td width="100" align="right">Text</td>
-                        <td width="150">
-                            <input type="text" name="text" />
-                        <td align="left"/>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="center">
-                            <input type="submit" name="" value="Zapisz">
-                            &nbsp;&nbsp;
-                            <input type="reset" name="" value="Resetuj">
-                            &nbsp;&nbsp;
-                        </td>
-                    </tr>
-                </table>
-            </form:form>
-        </td>
-    </tr>
-</table>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<center>
+
+    <h5>*Product Adding*</h5>
+
+    <form:form action="newproduct" method="post" >
+        <table style="border-collapse: collapse;" border="1"
+               bordercolor="#443241" width="700">
+            <tr bgcolor="#7cfc00">
+
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Measure</th>
+                <th>Amount</th>
+
+            <tr>
+
+                <td width="100">
+                    <input type="text" name="productName"/>
+                <td align="left"/>
+
+                <input type="text" name="price"/>
+                <td align="left"/>
+
+                <input type="text" name="measure"/>
+                <td align="left"/>
+
+                <input type="text" name="amount"/>
+                <td align="left"/>
+
+            </tr>
+
+            <tr>
+                <td align="right" colspan="50" td>
+                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!</button>
+                    <button type="reset" value="Reset"  class="btn btn-primary btn-sm">Reset</button>
+                    <button type="submit" value="Save"  class="btn btn-primary btn-sm btn-success">Save</button>
+                </td>
+            </tr>
+
+            </tr>
+        </table>
+    </form:form>
+</center>
 </body>
 </html>

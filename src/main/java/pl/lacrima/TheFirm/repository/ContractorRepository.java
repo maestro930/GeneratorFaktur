@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ContractorRepository extends JpaRepository<Contractor, Long> {
+
     @Query("select contractorName from Contractor ")
     List<Contractor> findAllByContractorName(String contractorName);
 
@@ -17,7 +18,5 @@ public interface ContractorRepository extends JpaRepository<Contractor, Long> {
     List<Contractor> findContractorByNip (String nip);
 
     List<Contractor> findContractorByContractorName(String contractorName);
-
-
 
 }
