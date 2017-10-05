@@ -55,4 +55,19 @@ public class WarehouseController {
         warehouseService.deleteProduct(id);
         return "redirect:allproducts";
     }
+
+    // update
+    @RequestMapping(value = "updateproduct", method = RequestMethod.GET)
+    public ModelAndView editProduct(@RequestParam("id") Long id) {
+        ModelAndView mav = new ModelAndView("updateProduct");
+        Warehouse warehouse = warehouseService.findProductById(id);
+        mav.addObject("updateProduct", warehouse);
+        return mav;
+    }
+
+    @RequestMapping(value = "updateproduct", method = RequestMethod.POST)
+    public String updateProduct(@ModelAttribute("updateProduct") Warehouse warehouse) {
+        warehouseService.save(warehouse);
+        return "redirect:allproducts";
+    }
 }

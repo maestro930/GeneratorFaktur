@@ -28,4 +28,8 @@ public class WarehouseService {
     public void deleteProduct(Long id) {
         warehouseRepository.delete(id);
     }
+
+    public Warehouse findProductById(Long id) {
+        return warehouseRepository.getOne(id);
+    }
 }

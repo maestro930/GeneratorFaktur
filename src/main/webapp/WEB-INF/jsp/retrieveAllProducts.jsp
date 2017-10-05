@@ -47,7 +47,7 @@
                 <td><c:out value="${warehouse.amount}"></c:out></td>
 
                 <td>
-                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-primary btn-sm">Update</button>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='updateproduct?id=${warehouse.id}'"  class="btn btn-primary btn-sm">Update</button>
                 </td>
                 <td>
                     &nbsp;&nbsp; <button type="button" onclick="document.location.href='deleteproduct?id=${warehouse.id}';"  class="btn btn-danger btn-sm">Delete!</button>
