@@ -19,7 +19,7 @@
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-primary btn-sm">Invoices</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Invoice</button>
     <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-sm btn-outline-primary">Products</button>
-    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-danger btn-sm">New Product</button>
+    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
 
     <table class = "table table-bordered">
 
@@ -31,6 +31,8 @@
             <th>Price</th>
             <th>Measure</th>
             <th>Amount</th>
+            <th></th>
+            <th></th>
 
         <c:forEach var="warehouse" items="${ALL_PRODUCTS}" varStatus="status">
             <tr>
@@ -44,12 +46,12 @@
                 <td><c:out value="${warehouse.measure}"></c:out></td>
                 <td><c:out value="${warehouse.amount}"></c:out></td>
 
-                    <%--<td>--%>
-                    <%--&lt;%&ndash;&nbsp;&nbsp;<a href="updateHello.do?id=${hello.id}">Aktualizuj</a>&ndash;%&gt;--%>
-                    <%--</td>--%>
-                    <%--<td>--%>
-                    <%--&lt;%&ndash;&nbsp;&nbsp;<a href="deleteHello.do?id=${hello.id}">Usun</a>&ndash;%&gt;--%>
-                    <%--</td>--%>
+                <td>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-primary btn-sm">Update</button>
+                </td>
+                <td>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='deleteproduct?id=${warehouse.id}';"  class="btn btn-danger btn-sm">Delete!</button>
+                </td>
 
         </tbody>
         </c:forEach>

@@ -19,7 +19,7 @@
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-primary btn-sm">Invoices</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Invoice</button>
     <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-primary btn-sm">Products</button>
-    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-danger btn-sm">New Product</button>
+    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
 
 
 <%--<input type="button" bgcolor="#7cfc00" value="Add New Product" onclick="document.location.href='newProduct'">--%>
@@ -50,7 +50,7 @@
                 <td><c:out value="${contractor.street}"></c:out></td>
                 <td><c:out value="${contractor.city}"></c:out></td>
                 <td><c:out value="${contractor.postalCode}"></c:out></td>
-                <td><c:out value="${contractor.phoneNumber}"></c:out></td>
+                <td><c:out value="${contractor.phone}"></c:out></td>
                 <td><c:out value="${contractor.email}"></c:out></td>
 
                     <%--<td>--%>

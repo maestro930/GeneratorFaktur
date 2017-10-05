@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pl.lacrima.TheFirm.database.model.Contractor;
 import pl.lacrima.TheFirm.database.model.Warehouse;
@@ -14,12 +15,12 @@ import pl.lacrima.TheFirm.service.WarehouseService;
 import java.util.List;
 
 @Controller
-public class WebController {
+public class WarehouseController {
 
     // ******************************************************
     public final WarehouseService warehouseService;
 
-    public WebController(WarehouseService warehouseService){
+    public WarehouseController(WarehouseService warehouseService){
         this.warehouseService = warehouseService;
     }
     // ******************************************************
@@ -46,6 +47,12 @@ public class WebController {
     @RequestMapping(value = "newproduct", method = RequestMethod.POST)
     public String createNewProduct(@ModelAttribute("warehouse") Warehouse warehouse) {
         warehouseService.save(warehouse);
+        return "redirect:allproducts";
+    }
+
+    @RequestMapping("deleteproduct")
+    public String deleteProduct(@RequestParam("id") Long id) {
+        warehouseService.deleteProduct(id);
         return "redirect:allproducts";
     }
 }
