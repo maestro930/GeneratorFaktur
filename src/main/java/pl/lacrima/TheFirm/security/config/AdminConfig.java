@@ -2,7 +2,7 @@ package pl.lacrima.TheFirm.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import pl.lacrima.TheFirm.security.command.CreateUserCommand;
+import pl.lacrima.TheFirm.database.model.User;
 import pl.lacrima.TheFirm.security.service.UserService;
 
 import javax.annotation.PostConstruct;
@@ -16,11 +16,17 @@ public class AdminConfig {
         this.userService = userService;
     }
 
+     //tworzenie admina - trzeba zakomentowac w klasie "user" validatory email, nip, phone - tylko raz - przy utworzeniu bazy potem zakomentowac ponownie
 //    @PostConstruct
 //    private void registerAdmin() {
-//        CreateUserCommand admin = new CreateUserCommand();
+//
+//
+//        User admin = new User();
 //        admin.setLogin("admin");
-//        admin.setPassword("password");
+//        admin.setPassword("admin");
+//
+//
 //        userService.registerNewUser(admin);
+//
 //    }
 }

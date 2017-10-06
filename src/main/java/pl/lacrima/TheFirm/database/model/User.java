@@ -1,7 +1,11 @@
 package pl.lacrima.TheFirm.database.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import pl.lacrima.TheFirm.validator.Nip;
 import pl.lacrima.TheFirm.validator.Phone;
+import pl.lacrima.TheFirm.validator.PostalCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -16,22 +20,26 @@ public class User {
         private Long    id;
         private String  contractorName;
 
-        @Nip
+       // @Nip
         private String  nip;
 
 
         private String  street;
         private String  city;
+       // @PostalCode
         private String  postalCode;
 
-        @Phone
+       // @Phone
         private String phone;
 
+      //  @Email(message = "prosze podac prawidlowy adres email")
         private String  email;
 
         @Column(unique = true)
+        @NotBlank
         private String login;
 
+        @NotBlank
         private String password;
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -144,4 +152,6 @@ public class User {
         result = 31 * result + password.hashCode();
         return result;
     }
+
+
 }

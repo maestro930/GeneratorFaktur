@@ -1,6 +1,8 @@
 package pl.lacrima.TheFirm.database.model;
 
+import pl.lacrima.TheFirm.validator.Nip;
 import pl.lacrima.TheFirm.validator.Phone;
+import pl.lacrima.TheFirm.validator.PostalCode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,9 +15,14 @@ public class Contractor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    id;
     private String  contractorName;
+
+    @Nip
     private String  nip;
+
     private String  street;
     private String  city;
+
+    @PostalCode
     private String  postalCode;
     @Phone
     private String phone;
