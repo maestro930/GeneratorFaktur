@@ -33,7 +33,7 @@ public class WarehouseController {
 
 
     @RequestMapping(value = "wareweblist", method = RequestMethod.GET)
-    public String WarehouseWebList() {
+    public String warehouseWebList() {
         return "warehouseWebList";
     }
 

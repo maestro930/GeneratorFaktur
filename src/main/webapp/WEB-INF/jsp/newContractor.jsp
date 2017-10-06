@@ -19,7 +19,8 @@
 </head>
 <body>
 <center>
-    <h5>*Product Adding*</h5>
+
+    <h5>*Contractor Adding*</h5>
 
     <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-sm btn-outline-primary">Contractors</button>
     <button type="button" onclick="document.location.href='createcontractor';"  class="btn btn-warning btn-sm">New Contractor</button>
@@ -28,38 +29,51 @@
     <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-primary btn-sm">Products</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
 
-    <form:form action="newproduct" method="post" >
+    <form:form action="newcontractor" method="post">
         <table style="border-collapse: collapse;" border="1"
                bordercolor="#443241" width="70%">
             <tr bgcolor="#7cfc00">
 
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Measure</th>
-                <th>Amount</th>
+                <th>Company Name</th>
+                <th>NIP</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Postal Code</th>
+                <th>Phone Number</th>
+                <th>Email</th>
 
             <tr>
 
                 <td >
-                    <input type="text" name="productName"/>
+                    <input type="text" name="contractorName"/>
                 <td align="left"/>
 
-                <input type="text" name="price"/>
+                <input type="text" name="nip"/>
                 <td align="left"/>
 
-                <input type="text" name="measure"/>
+                <input type="text" name="street"/>
                 <td align="left"/>
 
-                <input type="text" name="amount"/>
+                <input type="text" name="city"/>
+                <td align="left"/>
+
+                <input type="text" name="postalCode"/>
+                <td align="left"/>
+
+                <input type="text" name="phone"/>
+                <td align="left"/>
+
+                <input type="text" name="email"/>
                 <td align="left"/>
 
             </tr>
 
             <tr>
-                <td align="right" colspan="10" td>
-                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!</button>
-                    <button type="reset" value="Reset"  class="btn btn-primary btn-sm">Reset</button>
-                    <button type="submit" value="Save"  class="btn btn-primary btn-sm btn-success">Save</button>
+                <td align="right" colspan="50" td>
+                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!
+                    </button>
+                    <button type="reset" value="Reset" class="btn btn-primary btn-sm">Reset</button>
+                    <button type="submit" value="Save" class="btn btn-primary btn-sm btn-success">Save</button>
                 </td>
             </tr>
 

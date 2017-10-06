@@ -26,6 +26,11 @@ public class ContractorController {
         return "retrieveAllContractors";
     }
 
+    @RequestMapping(value = "createcontractor", method = RequestMethod.GET)
+    public String createContractor() {
+        return "newContractor";
+    }
+
     @RequestMapping(value = "newcontractor", method = RequestMethod.POST)
     public String createNewContractor(@ModelAttribute("contractor") Contractor contractor) {
         contractorService.createNewContractor(contractor);
