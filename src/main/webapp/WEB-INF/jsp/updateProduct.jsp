@@ -10,15 +10,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        input[type="text"] {width: 100%;}
+        body { background: #f2f2f2 !important; }
+    </style>
+
 </head>
 <body>
 <center>
 
-    <h5>*Product Adding*</h5>
+    <h5>*Product Modify*</h5>
 
-    <form:form action="newproduct" method="post" commandName="updateProduct">
+    <form:form action="updateproduct" method="post" commandName="updateProduct">
         <table style="border-collapse: collapse;" border="1"
-               bordercolor="#443241" width="700">
+               bordercolor="#443241" width="70%">
             <tr bgcolor="#7cfc00">
 
                 <th>Product Name</th>
@@ -29,7 +34,7 @@
                     <form:input type="hidden" path="id"/>
             <tr>
 
-                <td width="100">
+                <td >
                     <input type="text" name="productName"/>
                 <td align="left"/>
 

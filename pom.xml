@@ -85,7 +85,11 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
         </dependency>
-    <!--Security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!--Security-->
 
     </dependencies>
 

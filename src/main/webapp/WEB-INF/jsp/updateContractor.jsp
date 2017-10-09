@@ -14,11 +14,11 @@
 <body>
 <center>
 
-    <h5>*Product Modify*</h5>
+    <h5>*Contractor Modify*</h5>
 
-    <form:form action="updatecontractor" method="post" commandName="updateContractorModel">
+    <form:form action="updatecontractor" method="post" commandName="updateContractorCommand">
         <table style="border-collapse: collapse;" border="1"
-               bordercolor="#443241" width="700">
+               bordercolor="#443241" width="70&">
             <tr bgcolor="#7cfc00">
 
                 <th>Company Name</th>

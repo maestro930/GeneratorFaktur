@@ -51,12 +51,12 @@ public class ContractorController {
     public ModelAndView editContractor(@RequestParam("id") Long id) {
         ModelAndView mav = new ModelAndView("updateContractor");    // to updateContractor.jsp
         Contractor contractor = contractorService.findContractorById(id);
-        mav.addObject("updateContractorModel", contractor);
+        mav.addObject("updateContractorCommand", contractor);
         return mav;
     }
 
     @RequestMapping(value = "updatecontractor", method = RequestMethod.POST)    // from updateContractor.jsp
-    public String updateContractor(@ModelAttribute("updateContractorModel") Contractor contractor) {
+    public String updateContractor(@ModelAttribute("updateContractorCommand") Contractor contractor) {
         contractorService.updateContractor(contractor);
         return "redirect:allcontractors";
     }
