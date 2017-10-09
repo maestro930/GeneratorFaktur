@@ -26,7 +26,7 @@ public class Invoice {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Invoice(){};
+    public Invoice(){}
 
     public Invoice(Date dateOfSale, Contractor contractor, List<WarehouseHasInvoice> warehouseHasInvoices, User user) {
         this.dateOfSale = dateOfSale;

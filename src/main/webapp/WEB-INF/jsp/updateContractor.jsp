@@ -10,6 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style type="text/css">
+        /*input[type="text"] {width: 100%;}*/
+        body {background: #f2f2f2 !important;}
+    </style>
+
 </head>
 <body>
 <center>
@@ -18,7 +23,7 @@
 
     <form:form action="updatecontractor" method="post" commandName="updateContractorCommand">
         <table style="border-collapse: collapse;" border="1"
-               bordercolor="#443241" width="70&">
+               bordercolor="#443241" width="70%">
             <tr bgcolor="#7cfc00">
 
                 <th>Company Name</th>
@@ -46,7 +51,7 @@
                 <input type="text" name="city"/>
                 <td align="left"/>
 
-                <input type="text" name="postalCode"/>
+                    <input type="text" name="postalCode"/>
                 <td align="left"/>
 
                 <input type="text" name="phone"/>
@@ -58,7 +63,8 @@
 
             <tr>
                 <td align="right" colspan="50" td>
-                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!</button>
+                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!
+                    </button>
                     <button type="reset" value="Reset" class="btn btn-primary btn-sm">Reset</button>
                     <button type="submit" value="Save" class="btn btn-primary btn-sm btn-success">Save</button>
                 </td>

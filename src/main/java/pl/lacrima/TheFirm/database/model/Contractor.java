@@ -136,17 +136,6 @@ public class Contractor {
 
     @Override
     public String toString() {
-        return "Contractor{" +
-                "id=" + id +
-                ", contractorName='" + contractorName + '\'' +
-                ", nip='" + nip + '\'' +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", version=" + version +
-                ", invoices=" + invoices +
-                '}';
+        return contractorName;
     }
 }

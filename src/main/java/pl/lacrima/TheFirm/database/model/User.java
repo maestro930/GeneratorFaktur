@@ -144,4 +144,9 @@ public class User {
         result = 31 * result + password.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return contractorName;
+    }
 }
