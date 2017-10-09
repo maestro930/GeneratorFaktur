@@ -17,9 +17,8 @@
 </head>
 <body>
 
-
-<springForm:form method="POST"
-                 action="save.do" >
+<springForm:form  method="POST"
+                 action="saved" modelAttribute="command">
     <table>
         <tr>
             <td>Login:</td>
@@ -29,7 +28,7 @@
         <tr>
             <td>Password:</td>
             <td><springForm:input path="password" /></td>
-            <td><springForm:errors path="password" cssClass="error" /></td>
+            <td><springForm:errors path="password" cssClass="error"  /></td>
         </tr>
         <tr>
             <td>ContractorName:</td>

@@ -30,28 +30,29 @@ public class UserController {
         }
 
         @RequestMapping(value = "/user/save", method = RequestMethod.GET)
-        public String saveCustomerPage(Model model) {
+        public String saveUserPage( Model model) {
             logger.info("Returning userSave.jsp page");
-            model.addAttribute("user", new User());
+            model.addAttribute("command", new User());
             return "userSave";
         }
 
-        @RequestMapping(value = "/user/save.do", method = RequestMethod.POST)
-        public String saveCustomerAction(
-                User user,
+        @RequestMapping(value = "/user/saved", method = RequestMethod.POST)
+        public String saveUserAction(
+                @ModelAttribute("command") @Valid User user,
                 BindingResult bindingResult, Model model) {
             if (bindingResult.hasErrors()) {
                 logger.info("Returning userSave.jsp page");
                 return "userSave";
             }
-            logger.info("Returning userSaveSuccess.jsp page");
-            model.addAttribute("user", user);
+            logger.info("Returning userSaveSucces.jsp page");
+            model.addAttribute("command", user);
             users.put(user.getEmail(), user);
             sMUG.sendingMailTo(user.getEmail(), user.getLogin());
-            return "userSaveSuccess";
+            return "userSaveSucces";
         }
 
     }
 
 //https://stackoverflow.com/questions/7356684/spring-annotation-relation-with-formform-commandname-xy
 //https://www.journaldev.com/2668/spring-validation-example-mvc-validator
+//CGI <- cv tam bluesoft.
