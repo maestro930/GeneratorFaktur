@@ -19,7 +19,20 @@ public class ContractorService {
         contractorRepository.save(contractor);
     }
 
+    public void updateContractor(Contractor contractor) {
+        contractorRepository.save(contractor);
+    }
+
     public List<Contractor> findAllContractors(){
         return contractorRepository.findAll();
     }
+
+    public Contractor findContractorById(Long id) {
+        return contractorRepository.findOne(id);
+    }
+
+    public void deleteContractor(Long id) {
+        contractorRepository.delete(id);
+    }
+
 }

@@ -59,10 +59,10 @@
                 <td><c:out value="${contractor.email}"></c:out></td>
 
                 <td>
-                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='updateproduct?id=${warehouse.id}'"  class="btn btn-primary btn-sm">Update</button>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='changecontractor?id=${contractor.id}'"  class="btn btn-primary btn-sm">Update</button>
                 </td>
                 <td>
-                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='deleteproduct?id=${warehouse.id}';"  class="btn btn-danger btn-sm">Delete!</button>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='deletecontractor?id=${contractor.id}';"  class="btn btn-danger btn-sm">Delete!</button>
                 </td>
 
                 </tbody>

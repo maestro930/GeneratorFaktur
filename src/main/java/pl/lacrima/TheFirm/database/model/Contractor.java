@@ -22,12 +22,16 @@ public class Contractor {
 
     private String  email;
 
+    @Version
+    @Column(name = "version")
+    private Long version;
+
     @OneToMany(mappedBy = "contractor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Invoice> invoices;
 
     public Contractor(){};
 
-    public Contractor(String contractorName, String nip, String street, String city, String postalCode, String phone, String email) {
+    public Contractor(String contractorName, String nip, String street, String city, String postalCode, String phone, String email, List<Invoice> invoices) {
         this.contractorName = contractorName;
         this.nip = nip;
         this.street = street;
@@ -35,10 +39,27 @@ public class Contractor {
         this.postalCode = postalCode;
         this.phone = phone;
         this.email = email;
+        this.invoices = invoices;
+    }
+
+    public Contractor(String contractorName, String nip, String street, String city, String postalCode, String phone, String email, Long version, List<Invoice> invoices) {
+        this.contractorName = contractorName;
+        this.nip = nip;
+        this.street = street;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.phone = phone;
+        this.email = email;
+        this.version = version;
+        this.invoices = invoices;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getContractorName() {
@@ -97,6 +118,22 @@ public class Contractor {
         this.email = email;
     }
 
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+
     @Override
     public String toString() {
         return "Contractor{" +
@@ -106,8 +143,10 @@ public class Contractor {
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", postalCode='" + postalCode + '\'' +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", version=" + version +
+                ", invoices=" + invoices +
                 '}';
     }
 }

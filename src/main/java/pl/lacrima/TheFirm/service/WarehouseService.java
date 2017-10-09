@@ -30,6 +30,6 @@ public class WarehouseService {
     }
 
     public Warehouse findProductById(Long id) {
-        return warehouseRepository.getOne(id);
+        return warehouseRepository.findOne(id);
     }
 }

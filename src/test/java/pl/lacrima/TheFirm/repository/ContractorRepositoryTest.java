@@ -8,10 +8,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestData
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.lacrima.TheFirm.database.model.Contractor;
+import pl.lacrima.TheFirm.database.model.Invoice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.doesNotHave;
 import static org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestDatabase.Replace.NONE;
 
 @DataJpaTest
@@ -25,9 +28,10 @@ public class ContractorRepositoryTest {
     @Before
     public void setUp() {
 
-        contractorRepository.save(new Contractor("A spolka zoo", "1321324", "contractorska 6", "warszawa", "02-121", "324324332", "mail@mail.pl"  ));
-        contractorRepository.save(new Contractor("B spolka zoo", "213224", "bontractorska 16", "krakow", "01-111", "764324322", "mail@mail.pl"  ));
-        contractorRepository.save(new Contractor("C spolka zoo", "51324", "kontractorska 645", "warszawa", "06-551", "664324232", "mail@mail.pl"  ));
+        List<Invoice> invList = new ArrayList<>();
+        contractorRepository.save(new Contractor("A spolka zoo", "1321324", "contractorska 6", "warszawa", "01-121", "323424332","dda@dd.pl",invList ));
+        contractorRepository.save(new Contractor("A spolka zoo", "1343224", "contractorska 7", "warszawa", "02-121", "324124332","ddb@dd.pl",invList ));
+        contractorRepository.save(new Contractor("A spolka zoo", "1378924", "contractorska 8", "warszawa", "03-121", "456324332","ddc@dd.pl",invList ));
     }
 
 

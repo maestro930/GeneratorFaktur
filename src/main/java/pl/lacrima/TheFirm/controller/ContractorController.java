@@ -5,7 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import pl.lacrima.TheFirm.database.model.Contractor;
+import pl.lacrima.TheFirm.database.model.Warehouse;
 import pl.lacrima.TheFirm.service.ContractorService;
 
 import java.util.List;
@@ -34,6 +37,27 @@ public class ContractorController {
     @RequestMapping(value = "newcontractor", method = RequestMethod.POST)
     public String createNewContractor(@ModelAttribute("contractor") Contractor contractor) {
         contractorService.createNewContractor(contractor);
+        return "redirect:allcontractors";
+    }
+
+    @RequestMapping("deletecontractor")
+    public String deleteContractor(@RequestParam("id") Long id) {
+        contractorService.deleteContractor(id);
+        return "redirect:allcontractors";
+    }
+
+    // update
+    @RequestMapping(value = "changecontractor", method = RequestMethod.GET)
+    public ModelAndView editContractor(@RequestParam("id") Long id) {
+        ModelAndView mav = new ModelAndView("updateContractor");    // to updateContractor.jsp
+        Contractor contractor = contractorService.findContractorById(id);
+        mav.addObject("updateContractorModel", contractor);
+        return mav;
+    }
+
+    @RequestMapping(value = "updatecontractor", method = RequestMethod.POST)    // from updateContractor.jsp
+    public String updateContractor(@ModelAttribute("updateContractorModel") Contractor contractor) {
+        contractorService.updateContractor(contractor);
         return "redirect:allcontractors";
     }
 }
