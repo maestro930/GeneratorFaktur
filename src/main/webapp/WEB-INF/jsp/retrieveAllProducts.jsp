@@ -23,7 +23,7 @@
     <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-primary btn-sm">Contractors</button>
     <button type="button" onclick="document.location.href='createcontractor';"  class="btn btn-warning btn-sm">New Contractor</button>
     <button type="button" onclick="document.location.href='allinvoices';"  class="btn btn-primary btn-sm">Invoices</button>
-    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Invoice</button>
+    <button type="button" onclick="document.location.href='newinvoice';"  class="btn btn-warning btn-sm">New Invoice</button>
     <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-sm btn-outline-primary">Products</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
 

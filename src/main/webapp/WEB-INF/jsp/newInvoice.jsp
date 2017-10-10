@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,8 +19,7 @@
 <body>
 <center>
 
-    <h5>*Contractor Adding*</h5>
-
+    <h5>*Contractors*</h5>
     <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-sm btn-outline-primary">Contractors</button>
     <button type="button" onclick="document.location.href='createcontractor';"  class="btn btn-warning btn-sm">New Contractor</button>
     <button type="button" onclick="document.location.href='allinvoices';"  class="btn btn-primary btn-sm">Invoices</button>
@@ -29,11 +27,12 @@
     <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-primary btn-sm">Products</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
 
-    <form:form action="newcontractor" method="post">
+    <table class = "table table-bordered">
+
         <table style="border-collapse: collapse;" border="1"
                bordercolor="#443241" width="70%">
             <tr bgcolor="#7cfc00">
-
+                <th>Index</th>
                 <th>Company Name</th>
                 <th>NIP</th>
                 <th>Street</th>
@@ -41,45 +40,48 @@
                 <th>Postal Code</th>
                 <th>Phone Number</th>
                 <th>Email</th>
+                <th></th>
+                <th></th>
 
+                <c:forEach var="invoice" items="${ALL_INVOICES}" varStatus="status">
             <tr>
+            <tr bgcolor="#fffaf0">
 
-                <td >
-                    <input type="text" name="contractorName"/>
-                <td align="left"/>
+                <tbody>
 
-                <input type="text" name="nip"/>
-                <td align="left"/>
+                <td><c:out value="${status.index+1}"></c:out></td>
+                <td><c:out value="${invoice.id}"></c:out></td>
+                <td><c:out value="${invoice.dateOfSale}"></c:out></td>
+                <%--<td><c:out value="${invoice.contractor}"></c:out></td>--%>
+                <%--<td><c:out value="${invoice.user}"></c:out></td>--%>
 
-                <input type="text" name="street"/>
-                <td align="left"/>
 
-                <input type="text" name="city"/>
-                <td align="left"/>
 
-                <input type="text" name="postalCode"/>
-                <td align="left"/>
-
-                <input type="text" name="phone"/>
-                <td align="left"/>
-
-                <input type="text" name="email"/>
-                <td align="left"/>
-
-            </tr>
-
-            <tr>
-                <td align="right" colspan="50" td>
-                    <button type="button" onclick="history.back();" class="btn btn-primary btn-sm btn-danger">Cancel!
-                    </button>
-                    <button type="reset" value="Reset" class="btn btn-primary btn-sm">Reset</button>
-                    <button type="submit" value="Save" class="btn btn-primary btn-sm btn-success">Save</button>
+                <td>
+                    <%--<c:forEach var="invoice" items="${ALL_INVOICES}" varStatus="status">--%>
+                    <select name="invoice">
+                            <option value="${invoice.id}"><c:out value="${invoice.id}" /></option>
+                            <%--<option value="${invoice}"><c:out value="${invoice.contractor}" /></option>--%>
+                    </select>
+                    <%--</c:forEach>--%>
                 </td>
-            </tr>
 
-            </tr>
+
+
+
+
+                <td>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='changecontractor?id=${contractor.id}'"  class="btn btn-primary btn-sm">Update</button>
+                </td>
+                <td>
+                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='deletecontractor?id=${contractor.id}';"  class="btn btn-danger btn-sm">Delete!</button>
+                </td>
+
+                </tbody>
+                </c:forEach>
+
         </table>
-    </form:form>
+    </table>
 </center>
 </body>
 </html>

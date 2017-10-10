@@ -19,4 +19,8 @@ public class InvoiceService {
         return invoiceRepository.findAll();
     }
 
+    public void save(Invoice invoice){
+        invoiceRepository.save(invoice);
+    }
+
 }
