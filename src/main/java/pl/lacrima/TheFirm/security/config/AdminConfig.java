@@ -16,17 +16,16 @@ public class AdminConfig {
         this.userService = userService;
     }
 
-     //tworzenie admina - trzeba zakomentowac w klasie "user" validatory email, nip, phone - tylko raz - przy utworzeniu bazy potem zakomentowac ponownie
-//    @PostConstruct
-//    private void registerAdmin() {
-//
-//
-//        User admin = new User();
-//        admin.setLogin("admin");
-//        admin.setPassword("admin");
-//
-//
-//        userService.registerNewUser(admin);
-//
-//    }
+
+
+    @PostConstruct
+    private void registerAdmin() {
+
+        if (!userService.loginExists("admin")) {
+            User admin = new User();
+            admin.setLogin("admin");
+            admin.setPassword("admin");
+            userService.registerNewUser(admin);
+        }
+    }
 }

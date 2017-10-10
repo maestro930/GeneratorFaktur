@@ -30,11 +30,23 @@ public class UserService {
         user.setLogin(createUser.getLogin());
         user.setPassword(passwordEncoder.encode(createUser.getPassword()));
 
+        user.setStreet(createUser.getStreet());
+        user.setPostalCode(createUser.getPostalCode());
+
+        user.setPhone(createUser.getPhone());
+        user.setNip(createUser.getNip());
+        user.setEmail(createUser.getEmail());
+
+        user.setContractorName(createUser.getContractorName());
+        user.setCity(createUser.getCity());
+
+
+
         return userRepository.save(user);
 
     }
 
-    private boolean loginExists(String login) {
+    public boolean loginExists(String login) {
         return userRepository.findByLogin(login) != null;
     }
 

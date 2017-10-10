@@ -13,6 +13,7 @@
 <body>
 <center>
 
+
     <h5>*Contractors*</h5>
     <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-sm btn-outline-primary">Contractors</button>
     <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Contractor</button>

@@ -1,12 +1,14 @@
 package pl.lacrima.TheFirm.email;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class SendMsgUsingGmail {
-
+@Bean
     public void sendingMailTo(String toMail, String login){
 
         final String from = "registercompanytf@gmail.com";

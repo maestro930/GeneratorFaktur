@@ -20,19 +20,19 @@ public class User {
         private Long    id;
         private String  contractorName;
 
-       // @Nip
+       @Nip
         private String  nip;
 
 
         private String  street;
         private String  city;
-       // @PostalCode
+       @PostalCode
         private String  postalCode;
 
-       // @Phone
+       @Phone
         private String phone;
 
-      //  @Email(message = "prosze podac prawidlowy adres email")
+      @Email(message = "prosze podac prawidlowy adres email")
         private String  email;
 
         @Column(unique = true)
