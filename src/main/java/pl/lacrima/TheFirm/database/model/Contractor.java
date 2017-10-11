@@ -29,7 +29,7 @@ public class Contractor {
     @OneToMany(mappedBy = "contractor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Invoice> invoices;
 
-    public Contractor(){};
+    public Contractor(){}
 
     public Contractor(String contractorName, String nip, String street, String city, String postalCode, String phone, String email, List<Invoice> invoices) {
         this.contractorName = contractorName;

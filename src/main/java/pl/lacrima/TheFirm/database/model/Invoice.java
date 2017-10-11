@@ -29,7 +29,7 @@ public class Invoice {
     public Invoice(){}
 
     public Invoice(Date dateOfSale, Contractor contractor, List<WarehouseHasInvoice> warehouseHasInvoices, User user) {
-        this.dateOfSale = dateOfSale;
+        this.dateOfSale = new Date();
         this.contractor = contractor;
         this.warehouseHasInvoices = warehouseHasInvoices;
         this.user = user;
