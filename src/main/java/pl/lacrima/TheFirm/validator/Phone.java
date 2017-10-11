@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 public @interface Phone {
 
 
-    String message() default "{Phone}";
+    String message() default "Invalid format, valid formats are 123456789, 123-456-789";
 
     Class<?>[] groups() default {};
 

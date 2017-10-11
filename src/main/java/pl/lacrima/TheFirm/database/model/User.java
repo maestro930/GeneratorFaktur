@@ -3,6 +3,7 @@ package pl.lacrima.TheFirm.database.model;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import pl.lacrima.TheFirm.validator.Login;
 import pl.lacrima.TheFirm.validator.Nip;
 import pl.lacrima.TheFirm.validator.Phone;
 import pl.lacrima.TheFirm.validator.PostalCode;
@@ -18,28 +19,32 @@ public class User {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long    id;
+    @NotBlank(message = "This is a required field")
         private String  contractorName;
 
-       @Nip
+       @Nip(message = "Nip number is not valid, valid formats are 1234567890, 123-456-78-90")
         private String  nip;
 
-
+    @NotBlank(message = "This is a required field")
         private String  street;
+    @NotBlank(message = "This is a required field")
         private String  city;
-       @PostalCode
+       @PostalCode(message = "Postal code is not valid, valid formats are 12-345, 12345")
         private String  postalCode;
 
-       @Phone
+       @Phone(message = "Phone number is not valid, valid formats are 123456789, 123-456-789")
         private String phone;
 
-      @Email(message = "prosze podac prawidlowy adres email")
+       @Email(message = "Email address is not valid")
         private String  email;
 
+
         @Column(unique = true)
-        @NotBlank
+        @Login(message = "This login exists")
+        @NotBlank(message = "This is a required field")
         private String login;
 
-        @NotBlank
+        @NotBlank(message = "This is a required field")
         private String password;
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

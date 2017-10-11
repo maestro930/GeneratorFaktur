@@ -44,18 +44,18 @@ public class UserRegistrationController {
 
         @RequestMapping(value = "/user/saved", method = RequestMethod.POST)
         public String saveUserAction(
-                @ModelAttribute("user") @Valid User user,
+                @Valid @ModelAttribute("command") User user,
                 BindingResult bindingResult, Model model) {
             if (bindingResult.hasErrors()) {
                 logger.info("Returning userSave.jsp page");
                 return "userSave";
             }
             logger.info("Returning userSaveSucces.jsp page");
-            model.addAttribute("command", user);
+            model.addAttribute(user);
             users.put(user.getEmail(), user);
             sMUG.sendingMailTo(user.getEmail(), user.getLogin());
             userService.registerNewUser(user);
-            return "userSaveSucces";
+            return "userSaveSucces"; //should be double ss
         }
 
     }

@@ -11,7 +11,7 @@
     <title>User Registration Page</title>
     <style>
         .error {
-            color: aqua;
+            color: darkred;
             font-style: normal;
             font-weight: bold;
         }
@@ -25,7 +25,7 @@
         <tr>
             <td>Login:</td>
             <td><springForm:input path="login" /></td>
-            <td><springForm:errors path="login" cssClass="error" /></td>
+            <td><springForm:errors path="login" code="label.login" cssClass="error" /></td>
         </tr>
         <tr>
             <td>Password:</td>

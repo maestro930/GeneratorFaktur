@@ -1,17 +1,17 @@
 package pl.lacrima.TheFirm.validator;
 
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = PostalCodeValidator.class)
+@Constraint(validatedBy = LoginValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PostalCode {
+public @interface Login {
 
-
-    String message() default "{PostalCode}";
+    String message() default "This login already exists";
 
     Class<?>[] groups() default {};
 
