@@ -58,12 +58,11 @@
 
 
                 <td>
-                    <%--<c:forEach var="invoice" items="${ALL_INVOICES}" varStatus="status">--%>
                     <select name="invoice">
-                            <option value="${invoice.id}"><c:out value="${invoice.id}" /></option>
-                            <%--<option value="${invoice}"><c:out value="${invoice.contractor}" /></option>--%>
+                    <c:forEach var="warehouse" items="${ALL_WAREHOUSE}" varStatus="status">
+                            <option value="${xxx}"><c:out value="${warehouse.productName}" /></option>
+                    </c:forEach>
                     </select>
-                    <%--</c:forEach>--%>
                 </td>
 
 
