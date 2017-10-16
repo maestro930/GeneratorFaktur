@@ -43,21 +43,19 @@
                 <th>Product</th>
                 <th>Amount</th>
 
-                    <%--<form:input type="hidden" path="dateOfSale"/>--%>
-
             <tr>
 
                 <td>
                     <select name="contractor">
                         <c:forEach var="contractor" items="${ALL_CONTRACTORS}" varStatus="status">
-                            <option value="${getCon}"><c:out value="${contractor.contractorName}"/></option>
+                            <option value="${contractor.id}"><c:out value="${contractor.contractorName}" ></c:out> </option>
                         </c:forEach>
                     </select>
                 <td align="left"/>
 
                 <select name="warehouse">
                     <c:forEach var="warehouse" items="${ALL_WAREHOUSE}" varStatus="status">
-                        <option value="${getWare}"><c:out value="${warehouse.productName}"/></option>
+                        <option form:value="${getWare}"><c:out value="${warehouse.productName}"/></option>
                     </c:forEach>
                 </select>
                 <td align="left"/>
@@ -65,9 +63,6 @@
 
                 <input type="text" name="amount"/>
                 <td align="left"/>
-
-                <%--<input type="datetime-local" name="dateOfSale"/>--%>
-                <%--<td align="left"/>--%>
 
             </tr>
 

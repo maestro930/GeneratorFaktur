@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Warehouse</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +12,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style type="text/css">
-        input[type="text"] {width: 100%;} /* removing this would make input not to go over cells border, but they would be too short, I want them to fit cells size */
-        body { background: #f2f2f2 !important; }
+        input[type="text"] {
+            width: 100%;
+        }
+
+        /* removing this would make input not to go over cells border, but they would be too short, I want them to fit cells size */
+        body {
+            background: #f2f2f2 !important;
+        }
     </style>
 
 </head>
@@ -22,15 +28,23 @@
 
     <h5>*Contractor Adding*</h5>
 
-    <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-primary btn-sm">Contractors</button>
-    <button type="button" onclick="document.location.href='createcontractor';"  class="btn btn-warning btn-sm">New Contractor</button>
-    <button type="button" onclick="document.location.href='allinvoices';"  class="btn btn-primary btn-sm">Invoices</button>
-    <button type="button" onclick="document.location.href='newinvoice';"  class="btn btn-warning btn-sm">New Invoice</button>
-    <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-primary btn-sm">Products</button>
-    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
+    <button type="button" onclick="document.location.href='allcontractors';" class="btn btn-primary btn-sm">
+        Contractors
+    </button>
+    <button type="button" onclick="document.location.href='createcontractor';" class="btn btn-warning btn-sm">New
+        Contractor
+    </button>
+    <button type="button" onclick="document.location.href='allinvoices';" class="btn btn-primary btn-sm">Invoices
+    </button>
+    <button type="button" onclick="document.location.href='newinvoice';" class="btn btn-warning btn-sm">New Invoice
+    </button>
+    <button type="button" onclick="document.location.href='allproducts';" class="btn btn-primary btn-sm">Products
+    </button>
+    <button type="button" onclick="document.location.href='newProduct';" class="btn btn-warning btn-sm">New Product
+    </button>
 
     <form:form action="newcontractor" method="post">
-        <table style="border-collapse: collapse;" border="1"
+        <table style="border-collapse: collapse;" border="0"
                bordercolor="#443241" width="70%">
             <tr bgcolor="#7cfc00">
 
@@ -44,7 +58,7 @@
 
             <tr>
 
-                <td >
+                <td>
                     <input type="text" name="contractorName"/>
                 <td align="left"/>
 
@@ -63,7 +77,8 @@
                 <input type="text" name="phone"/>
                 <td align="left"/>
 
-                <input type="text" name="email"/>
+                <input type="text" class="form-control" id="pwd" placeholder="Enter email" name="email">
+                    <%--<input type="text" name="email"/>--%>
                 <td align="left"/>
 
             </tr>

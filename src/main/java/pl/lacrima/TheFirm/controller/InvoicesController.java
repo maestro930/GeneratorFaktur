@@ -1,5 +1,6 @@
 package pl.lacrima.TheFirm.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,20 +11,23 @@ import pl.lacrima.TheFirm.database.model.Invoice;
 import pl.lacrima.TheFirm.database.model.Warehouse;
 import pl.lacrima.TheFirm.service.ContractorService;
 import pl.lacrima.TheFirm.service.InvoiceService;
+import pl.lacrima.TheFirm.service.UserFirmService;
 import pl.lacrima.TheFirm.service.WarehouseService;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 @Controller
 public class InvoicesController {
 
+    public final UserFirmService userService;
     public final ContractorService contractorService;
     public final WarehouseService warehouseService;
     public final InvoiceService invoiceService;
 
-    public InvoicesController(ContractorService contractorService, WarehouseService warehouseService, InvoiceService invoiceService) {
+    @Autowired
+    public InvoicesController(UserFirmService userService, ContractorService contractorService, WarehouseService warehouseService, InvoiceService invoiceService) {
+        this.userService = userService;
         this.contractorService = contractorService;
         this.warehouseService = warehouseService;
         this.invoiceService = invoiceService;
@@ -49,23 +53,18 @@ public class InvoicesController {
     }
 
     @RequestMapping(value = "addinvoice" ,method = RequestMethod.POST)
-    public String addNewInvoice(@ModelAttribute("invoice") Invoice invoice){
-
-        Contractor con = invoice.getContractor();
-        System.out.println("!!!contractor = " + con);
+    public String addNewInvoice(@ModelAttribute("invoice") Invoice invoice, Contractor contractor){
 
         Date date = new Date();
         invoice.setDateOfSale(new java.sql.Date(date.getTime()));
-        invoiceService.save(invoice);
+
+        invoice.setUser(userService.getUser());
+
+        invoice.setContractor(contractor);
+        System.out.println("!!!!!!!!!!!! = " + contractorService.findContractorById(contractor.getId())  );
+        if (contractor.getId() != null) {
+            invoiceService.save(invoice);
+        }
         return "redirect:allinvoices";
     }
-
-//    @RequestMapping("newinvoice")
-//    public String addNewInvoice(Model model){
-//        List<Invoice> listOfInvoices = invoiceService.getAllInvoices();
-//        model.addAttribute( "ALL_INVOICES", listOfInvoices);
-//        return "retrieveAllInvoices";
-//    }
-
-
 }
