@@ -60,8 +60,6 @@ public class InvoicesController {
 
         invoice.setUser(userService.getUser());
 
-        invoice.setContractor(contractor);
-        System.out.println("!!!!!!!!!!!! = " + contractorService.findContractorById(contractor.getId())  );
         if (contractor.getId() != null) {
             invoiceService.save(invoice);
         }
