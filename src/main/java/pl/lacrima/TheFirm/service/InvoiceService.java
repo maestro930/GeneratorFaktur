@@ -23,4 +23,8 @@ public class InvoiceService {
         invoiceRepository.save(invoice);
     }
 
+    public void delete(Long id){
+        invoiceRepository.delete(id);
+    }
+
 }

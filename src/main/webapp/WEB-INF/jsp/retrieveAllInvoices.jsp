@@ -2,17 +2,26 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Warehouse</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style type="text/css">
-        input[type="text"] {width: 100%;} /* removing this would make input not to go over cells border, but they would be too short, I want them to fit cells size */
-        body { background: #f2f2f2 !important; }
+        input[type="text"] {
+            width: 100%;
+        }
+
+        .mytable > tbody > tr > td, .mytable > tbody > tr > th, .mytable > tfoot > tr > td, .mytable > tfoot > tr > th, .mytable > thead > tr > td, .mytable > thead > tr > th {
+            padding-left: 15px;
+            padding-right: 60px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            /*margin: 0px ;*/
+        }
     </style>
 
 </head>
@@ -20,50 +29,70 @@
 <center>
 
     <h5>*Invoices*</h5>
-    <button type="button" onclick="document.location.href='allcontractors';"  class="btn btn-primary btn-sm">Contractors</button>
-    <button type="button" onclick="document.location.href='createcontractor';"  class="btn btn-warning btn-sm">New Contractor</button>
-    <button type="button" onclick="document.location.href='allinvoices';"  class="btn btn-sm btn-outline-primary">Invoices</button>
-    <button type="button" onclick="document.location.href='newinvoice';"  class="btn btn-warning btn-sm">New Invoice</button>
-    <button type="button" onclick="document.location.href='allproducts';"  class="btn btn-primary btn-sm">Products</button>
-    <button type="button" onclick="document.location.href='newProduct';"  class="btn btn-warning btn-sm">New Product</button>
+    <button type="button" onclick="document.location.href='allcontractors';" class="btn btn-primary btn-sm">
+        Contractors
+    </button>
+    <button type="button" onclick="document.location.href='createcontractor';" class="btn btn-warning btn-sm">New
+        Contractor
+    </button>
+    <button type="button" onclick="document.location.href='allinvoices';" class="btn btn-sm btn-outline-primary">
+        Invoices
+    </button>
+    <button type="button" onclick="document.location.href='newinvoice';" class="btn btn-warning btn-sm">New Invoice
+    </button>
+    <button type="button" onclick="document.location.href='allproducts';" class="btn btn-primary btn-sm">Products
+    </button>
+    <button type="button" onclick="document.location.href='newProduct';" class="btn btn-warning btn-sm">New Product
+    </button>
 
-    <table class = "table table-bordered">
+    <table class="mytable table-bordered table-condensed table-striped table-hover">
 
-        <table style="border-collapse: collapse;" border="1"
-               bordercolor="#443241" width="70%">
-            <tr bgcolor="#7cfc00">
-                <th>Index</th>
-                <th>Invoice ID</th>
-                <th>Date of Sale</th>
-                <th>Contractor Name</th>
-                <th>User Name</th>
-                <th></th>
-                <th></th>
-
-                <c:forEach var="invoice" items="${ALL_INVOICES}" varStatus="status">
-            <tr>
-            <tr bgcolor="#fffaf0">
-
-                <tbody>
-
-                <td><c:out value="${status.index+1}"></c:out></td>
-                <td><c:out value="${invoice.id}"></c:out></td>
-                <td><c:out value="${invoice.dateOfSale}"></c:out></td>
-                <td><c:out value="${invoice.contractor}"></c:out></td>
-                <td><c:out value="${invoice.user}"></c:out></td>
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Invoice ID</th>
+        <th>Date of Sale</th>
+        <th>Contractor Name</th>
+        <th>User Name</th>
+        <th></th>
+        <th></th>
 
 
-                <td>
-                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='updateproduct?id=${warehouse.id}'"  class="btn btn-primary btn-sm">Update</button>
-                </td>
-                <td>
-                    &nbsp;&nbsp; <button type="button" onclick="document.location.href='deleteproduct?id=${warehouse.id}';"  class="btn btn-danger btn-sm">Delete!</button>
-                </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
 
-                </tbody>
-                </c:forEach>
-        </table>
+        <c:forEach var="invoice" items="${ALL_INVOICES}" varStatus="status">
+
+
+        <td><c:out value="${status.index+1}"></c:out></td>
+        <td><c:out value="${invoice.id}"></c:out></td>
+        <td><c:out value="${invoice.dateOfSale}"></c:out></td>
+        <td><c:out value="${invoice.contractor}"></c:out></td>
+        <td><c:out value="${invoice.user}"></c:out></td>
+
+
+        <td>
+            &nbsp;&nbsp;
+            <button type="button" onclick="document.location.href='updateinvoice?id=${invoice.id}'"
+                    class="btn btn-primary btn-sm">Update
+            </button>
+        </td>
+        <td>
+            &nbsp;&nbsp;
+            <button type="button" onclick="document.location.href='deleteinvoice?id=${invoice.id}';"
+                    class="btn btn-danger btn-sm">Delete!
+            </button>
+        </td>
+
+    </tr>
+
+    </c:forEach>
     </table>
+    </div>
+
+
 </center>
 </body>
 </html>

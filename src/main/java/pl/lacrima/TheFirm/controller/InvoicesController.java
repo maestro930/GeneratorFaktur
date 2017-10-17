@@ -41,6 +41,12 @@ public class InvoicesController {
         return "retrieveAllInvoices";
     }
 
+    @RequestMapping(value = "deleteinvoice" , method = RequestMethod.GET)
+    public String deleteInvoice(Long id){
+        invoiceService.delete(id);
+        return "redirect:allinvoices";
+    }
+
     @RequestMapping(value = "newinvoice" ,method = RequestMethod.GET)
     public String newInvoice(Model model){
         List<Contractor> listOfContractors  = contractorService.findAllContractors();
